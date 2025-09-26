@@ -1,4 +1,10 @@
 # CTF Cicada-3301 Vol:1 – Writeup
+# Welcome
+
+- YØ! I tackled **Cicada-3301 Vol:1** on TryHackMe ([link here](https://tryhackme.com/room/cicada3301vol1)), which was a **medium difficulty challenge**. It’s a mix of cryptography, steganography, audio analysis, and a bit of hash cracking.
+
+In this writeup, I’ll show you my process, the tools I used, the mistakes I made (because yes, there were some, I'm human), and a few little victories along the way. Hope you find it useful and maybe a bit fun to read.
+
 
 ## Task 1
 
@@ -173,3 +179,7 @@ The shortened Pastebin URL led to SoundCloud. Weird, but that’s the final step
 **Question:** What is the song linked?
 
 **Answer:** The Instar Emergence
+
+# Goodbye
+
+That’s it for my first writeup! I had a lot of fun, learned a ton, and hopefully this gives you some insight into tackling Cicada-style puzzles. Until next time and keep hacking!
