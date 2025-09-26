@@ -215,4 +215,6 @@ The shortened Pastebin URL led to SoundCloud. Weird, but that’s the final step
 
 That’s it for my writeup! I had a lot of fun, learned a ton, and hopefully this gives you some insight into tackling Cicada-style puzzles. Until next time and keep hacking!
 
-![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/vault/edward.png)
+<p align="center">
+  <img src="https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/vault/edward.png" alt="Edward" width="400"/>
+</p
