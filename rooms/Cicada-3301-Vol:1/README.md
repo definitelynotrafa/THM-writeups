@@ -5,7 +5,7 @@
 
 In this writeup, I’ll show you my process, the tools I used, the mistakes I made (because yes, there were some, I'm human), and a few little victories along the way. Hope you find it useful and maybe a bit fun to read.
 
-![Descrição da imagem](assets/rooms/Cicada-3301-Vol%3A1/0.png)
+![COVER](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/0.png)
 
 ## Task 1
 
