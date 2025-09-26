@@ -56,7 +56,7 @@ In the Pastebin we found a passphrase and a key:
 **Answer:** No answer needed
 
 **Explanation:**
-The passphrase looks like Base64 (contains alphanumeric characters + `_` and ends with `!`, which is typical for Base64). To decode it in the terminal:
+The passphrase looks like Base64 (its length is a multiple of 4, which is typical for Base64). To decode it in the terminal:
 
 ```bash
 echo 'SG01Ul80X1A0NTVtaHA0NTMh' | base64 --decode
@@ -213,5 +213,6 @@ The shortened Pastebin URL led to SoundCloud. Weird, but that’s the final step
 
 # Goodbye
 
-That’s it for my first writeup! I had a lot of fun, learned a ton, and hopefully this gives you some insight into tackling Cicada-style puzzles. Until next time and keep hacking!
+That’s it for my writeup! I had a lot of fun, learned a ton, and hopefully this gives you some insight into tackling Cicada-style puzzles. Until next time and keep hacking!
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/vault/edward.png)
