@@ -27,6 +27,8 @@ Download and unzip the provided folder.
 **Explanation:**
 Sonic Visualizer is a tool for audio analysis, including creating spectrograms to visualize hidden frequencies and patterns. For this CTF, I used an online spectrogram tool instead of installing the software: [Audio Spectrogram Creator](https://convert.ing-now.com/audio-spectrogram-creator/).
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/2.png)
+
 Then, I scanned the QR code found in the spectrogram using: [QR Scanner](https://qrscanner.net/).
 
 Well...The QR code revealed a link!
@@ -39,6 +41,8 @@ In the Pastebin we found a passphrase and a key:
 
 * Passphrase: `SG01Ul80X1A0NTVtaHA0NTMh`
 * Key: `Q2ljYWRh`
+
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/3.png)
 
 ---
 
@@ -69,6 +73,8 @@ echo 'Q2ljYWRh' | base64 --decode
 
 * **Decrypted Key:** `Cicada`
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/4.png)
+
 ---
 
 **Info:** Still looks funny? Find and use a cipher along with the key to decipher the passphrase
@@ -78,6 +84,8 @@ Later, we needed to combine passphrase and key using a cipher. I tried several c
 **Question:** What is the final passphrase?
 
 * **Final Passphrase:** `Ju5T_4_P455phr453!`
+
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/5.png)
 
 ---
 
@@ -99,7 +107,9 @@ steghide extract -sf welcome.jpg
 * `-sf` specifies the source file for extraction.
 
 **Result:**
-Extracted a file called `invitation`, containing a link:
+Extracted a file called `invitation`, containing a link: https://imgur.com/a/c0ZSZga
+
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/6.png)
 
 **Question:** What link is given?
 
@@ -120,9 +130,14 @@ Extracted a file called `invitation`, containing a link:
 Well, I tried `steghide` again, no luck... then `exiftool`, still nothing.
 I couldn't resist and checked a hint: 
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/7.png)
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/8.png)
+
 "Use the same tool used to extract data in the original Cicada challenges"
 
-Since we have a JPEG, Outguess seemed a good bet. After installing:
+Since we have a JPEG, Outguess seemed a good bet.
+
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/9.png)
 
 ```bash
 outguess -r 8S8OaQw.jpg binhoBerde
@@ -130,6 +145,8 @@ outguess -r 8S8OaQw.jpg binhoBerde
 
 **Result:**
 Hidden message found inside the file.
+
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/10.png)
 
 **Question:** What tool did you use to find the hidden file?
 
@@ -146,25 +163,36 @@ Hidden message found inside the file.
 
 **Answer:** No answer needed
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/11.png)
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/16.png)
+
 **Explanation:**
-The file contained a hash at the beginning:
+The file contained a hash inside and some intructions for a puzzle:
 
 ```
 b6a233fb9b2d8772b636ab581169b58c98bd4b8df25e452911ef75561df649edc8852846e81837136840f3aa453e83d86323082d5b6002a16bc20c1560828348
 ```
 
-**Question:** What is the Hash type?
+**Question:** What is the Hash type? (hash-identifier AKA: my eyes)
 
 * **Answer:** sha512
 
 **Question:** What is the Link from the hash?
 
-Using online tools (md5hashing.net), we cracked it and got another Pastebin link:
+Using online tools (md5hashing.net), I cracked it and got another Pastebin link:
 
 **Answer:** [https://pastebin.com/6FNiVLh5](https://pastebin.com/6FNiVLh5)
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/15.png)
+
+**Info:** Decipher the message
+
+**Answer:** No answer needed | man, this thing was boooooooooring.
+
 **Question:** What is the link?
 After reading the Pastebin (very philosophical/random, excerpts from *Liber AL vel Legis* and solving the puzzle), the clue we needed pointed to a shortened URL:
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/17.png)
+*Desperation leads a man to use paint instead of python*
 
 **Answer:** [https://bit.ly/39pw2NH](https://bit.ly/39pw2NH)
 
@@ -181,6 +209,9 @@ The shortened Pastebin URL led to SoundCloud. Weird, but that’s the final step
 
 **Answer:** The Instar Emergence
 
+![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/18.png)
+
 # Goodbye
 
 That’s it for my first writeup! I had a lot of fun, learned a ton, and hopefully this gives you some insight into tackling Cicada-style puzzles. Until next time and keep hacking!
+
