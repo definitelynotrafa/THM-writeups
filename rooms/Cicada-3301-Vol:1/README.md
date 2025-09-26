@@ -1,5 +1,5 @@
 # CTF Cicada-3301 Vol:1 – Writeup
-# Welcome
+# Welcome!
 
 - YØ! I tackled **Cicada-3301 Vol:1** on TryHackMe ([link here](https://tryhackme.com/room/cicada3301vol1)), which was a **medium difficulty challenge**. It’s a mix of cryptography, steganography, audio analysis, and a bit of hash cracking.
 
@@ -211,7 +211,7 @@ The shortened Pastebin URL led to SoundCloud. Weird, but that’s the final step
 
 ![IMAGE](https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Cicada-3301-Vol%3A1/18.png)
 
-# Goodbye
+# Goodbye!
 
 That’s it for my writeup! I had a lot of fun, learned a ton, and hopefully this gives you some insight into tackling Cicada-style puzzles. Until next time and keep hacking!
 
