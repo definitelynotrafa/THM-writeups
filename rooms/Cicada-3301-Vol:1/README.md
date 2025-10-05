@@ -63,8 +63,6 @@ echo 'SG01Ul80X1A0NTVtaHA0NTMh' | base64 --decode
 echo 'Q2ljYWRh' | base64 --decode
 ```
 
-**Result:**
-
 **Question:** What is the decrypted passphrase?
 
 * **Decrypted Passphrase:** `Hm5R_4_P455mhp453!`
