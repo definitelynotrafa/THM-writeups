@@ -3,7 +3,7 @@
 
 - YØ! I tackled **Skynet** on TryHackMe ([link here](https://tryhackme.com/room/skynet)), which was a **easy difficulty challenge**. This one's all about enumeration, SMB shares, email snooping, exploiting a CMS vulnerability, and some good old privilege escalation with a tar wildcard injection.
 
-In this writeup, I’ll show you my process, the tools I used, the mistakes I made (because yes, there were some, I'm human), and a few little victories along the way. Hope you find it useful and maybe a bit fun to read.
+As always, I'll walk you through my process, the tools I used, and yeah... the rookie mistakes I made along the way (because let's be real, we all make them). Hope this helps someone out there!
 
 <p align="center">
   <img src="https://github.com/definitelynotrafa/THM-writeups/raw/main/assets/rooms/Skynet/0.png" alt="COVER" />
