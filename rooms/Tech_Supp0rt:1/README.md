@@ -5,11 +5,10 @@
 
 As always, I'll walk you through my process, the tools I used, and yeah... the moments where I probably overthought things. Hope this helps someone out there!
 
-<div align="center">
-![COVER](../../assets/rooms/Tech_Supp0rt:1/0.png)
-</div>
-
-
+<p align="center">
+  <img src="../../assets/rooms/Tech_Supp0rt:1/0.png" alt="COVER" width="400"/>
+  
+                                                                                 
 ## Initial Reconnaissance
 
 Alright, let's start the machine! Since we're not given any information, basic reconnaissance is the way to go.
