@@ -1,7 +1,7 @@
 # Tech_Supp0rt: 1 – Writeup
 # Welcome!
 
-- YØ! I tackled **TechSupport** on TryHackMe, which was an **easy difficulty challenge**. This one's about Samba shares, WordPress snooping, exploiting a Subrion CMS vulnerability (CVE-2018-19422), and some privilege escalation with `iconv`.
+- YØ! I tackled **TechSupport** on TryHackMe [(link here)](https://tryhackme.com/room/techsupp0rt1), which was an **easy difficulty challenge**. This one's about Samba shares, WordPress snooping, exploiting a Subrion CMS vulnerability (CVE-2018-19422), and some privilege escalation with `iconv`.
 
 As always, I'll walk you through my process, the tools I used, and yeah... the moments where I probably overthought things. Hope this helps someone out there!
 
