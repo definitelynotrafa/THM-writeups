@@ -148,14 +148,14 @@ Alright, let's grab the flag— I mean, the credentials. This was incredibly... 
 
 ![IMAGE](../../assets/vault/hackervoiceimin.png)
 
-
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/12.png)
-
 ---
 
 ## Exploring the Admin Panel
 
 New panel unlocked! Where can we pop a shell on this thing?
+
+
+![IMAGE](../../assets/rooms/Tech_Supp0rt:1/12.png)
 
 After exploring the site, I noticed the version is written **all over the place**. Let's see if there's a CVE for this.
 
