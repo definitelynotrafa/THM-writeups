@@ -5,7 +5,7 @@
 
 In this writeup, I’ll show you my process, the tools I used, the mistakes I made (because yes, there were some, I'm human), and a few little victories along the way. Hope you find it useful and maybe a bit fun to read.
 
-![COVER](../../assets/rooms/Cicada-3301-Vol%3A1/0.png)
+![COVER](../../assets/rooms/Cicada-3301-Vol_1/0.png)
 
 ## Task 1
 
@@ -27,7 +27,7 @@ Download and unzip the provided folder.
 **Explanation:**
 Sonic Visualizer is a tool for audio analysis, including creating spectrograms to visualize hidden frequencies and patterns. For this CTF, I used an online spectrogram tool instead of installing the software: [Audio Spectrogram Creator](https://convert.ing-now.com/audio-spectrogram-creator/).
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/2.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/2.png)
 
 Then, I scanned the QR code found in the spectrogram using: [QR Scanner](https://qrscanner.net/).
 
@@ -42,7 +42,7 @@ In the Pastebin we found a passphrase and a key:
 * Passphrase: `SG01Ul80X1A0NTVtaHA0NTMh`
 * Key: `Q2ljYWRh`
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/3.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/3.png)
 
 ---
 
@@ -71,7 +71,7 @@ echo 'Q2ljYWRh' | base64 --decode
 
 * **Decrypted Key:** `Cicada`
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/4.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/4.png)
 
 ---
 
@@ -83,7 +83,7 @@ Later, we needed to combine passphrase and key using a cipher. I tried several c
 
 * **Final Passphrase:** `Ju5T_4_P455phr453!`
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/5.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/5.png)
 
 ---
 
@@ -107,7 +107,7 @@ steghide extract -sf welcome.jpg
 **Result:**
 Extracted a file called `invitation`, containing a link: https://imgur.com/a/c0ZSZga
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/6.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/6.png)
 
 **Question:** What link is given?
 
@@ -128,14 +128,14 @@ Extracted a file called `invitation`, containing a link: https://imgur.com/a/c0Z
 Well, I tried `steghide` again, no luck... then `exiftool`, still nothing.
 I couldn't resist and checked a hint: 
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/7.png)
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/8.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/7.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/8.png)
 
 "Use the same tool used to extract data in the original Cicada challenges"
 
 Since we have a JPEG, Outguess seemed a good bet.
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/9.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/9.png)
 
 ```bash
 outguess -r 8S8OaQw.jpg binhoBerde
@@ -144,7 +144,7 @@ outguess -r 8S8OaQw.jpg binhoBerde
 **Result:**
 Hidden message found inside the file.
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/10.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/10.png)
 
 **Question:** What tool did you use to find the hidden file?
 
@@ -161,8 +161,8 @@ Hidden message found inside the file.
 
 **Answer:** No answer needed
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/11.png)
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/16.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/11.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/16.png)
 
 **Explanation:**
 The file contained a hash inside and some intructions for a puzzle:
@@ -181,7 +181,7 @@ Using online tools (md5hashing.net), I cracked it and got another Pastebin link:
 
 **Answer:** [https://pastebin.com/6FNiVLh5](https://pastebin.com/6FNiVLh5)
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/15.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/15.png)
 
 **Info:** Decipher the message
 
@@ -189,7 +189,7 @@ Using online tools (md5hashing.net), I cracked it and got another Pastebin link:
 
 **Question:** What is the link?
 After reading the Pastebin (very philosophical/random, excerpts from *Liber AL vel Legis* and solving the puzzle), the clue we needed pointed to a shortened URL:
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/17.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/17.png)
 *Desperation leads a man to use paint instead of python*
 
 **Answer:** [https://bit.ly/39pw2NH](https://bit.ly/39pw2NH)
@@ -207,7 +207,7 @@ The shortened Pastebin URL led to SoundCloud. Weird, but that’s the final step
 
 **Answer:** The Instar Emergence
 
-![IMAGE](../../assets/rooms/Cicada-3301-Vol%3A1/18.png)
+![IMAGE](../../assets/rooms/Cicada-3301-Vol_1/18.png)
 
 # Goodbye!
 
