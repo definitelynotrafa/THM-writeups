@@ -78,7 +78,7 @@ To be honest, I just used the "Magic" option in CyberChef and it came out as Bas
 **Answer:** `THM{sl1th3ry_tw33tz_4nd_l34ky_r3pl13s!}`
 
 <p align="center">
-  <img src="../../assets/rooms/Operation_Slither/uncover1.jpg" alt="Task 1 Complete" width="300"/>
+  <img src="../../assets/rooms/Operation_Slither/uncover1.png" alt="Task 1 Complete" width="300"/>
 </p>
 
 ---
@@ -178,7 +178,7 @@ Decoding the string in CyberChef, we get the flag:
 **Answer:** `THM{s0cm1nt_00ps3c_f1ng3r_m1scl1ck}`
 
 <p align="center">
-  <img src="../../assets/rooms/Operation_Slither/uncover2.jpg" alt="Task 2 Complete" width="300"/>
+  <img src="../../assets/rooms/Operation_Slither/uncover2.png" alt="Task 2 Complete" width="300"/>
 </p>
 
 ---
