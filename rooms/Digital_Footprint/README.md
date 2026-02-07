@@ -65,6 +65,8 @@ Your job as an OSINT investigator is to verify their founding date using only pu
 
 Visiting `warc-acme.com/jef/` directly didn't work. The page just doesn't load. But wait... when investigating the history of websites, there's a perfect tool for this: **Wayback Machine!**
 
+![IMAGE](../../assets/vault/steinsmicrowave.png)
+
 ![IMAGE](../../assets/rooms/Digital_Footprint/5.png)
 
 Well, well, well... look who was already on the internet back in **2016!**
