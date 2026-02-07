@@ -1,0 +1,111 @@
+Task 1
+
+An ACME Jet Solutions employee uploaded a photo of a residential property believed to be linked to ACME Jet's early operations. Can you figure out where the picture was taken to confirm or debunk the rumour? 
+
+Flag format: THM{City}
+
+Question: In which city was the photo taken?
+
+ok, para começar, vamos ver a foto 
+
+(foto0.png)
+
+ok, na imagem conseguimos encotnrar algo a dizer "The rectory" 
+foto1.png
+
+se pesquisarmos por isso, no google, encontramos o The Rectory Hotel no reino unido.
+foto2.png
+mas colocando a cidade como resposta, a resposta fica errada, porém, vamos fazer o que deviamos ter feito em primeiro, que seria ver os metadados e esperar encontrar alguma info
+
+foto3.png
+
+perfeito, temos aqui umas coordenadas
+
+26 deg 12' 14.76", 28 deg 2' 50.28"
+
+throwing it at google, it gives us Johannesburg
+
+foto4.png
+
+so...
+
+Answer: 
+
+THM{Johannesburg}
+
+
+Task 2
+
+ACME Jet Solutions (warc-acme.com/jef/), is all over social meda claiming they were founded in 2025 and that they're the fastest-growing data company in Africa.
+But something doesn't add up, one of their ex-employees ensures you that the company existed long before that.
+
+Your job as an OSINT investigator is to verify their founding date using only public information.
+
+Flag Format: THM{YYYYMMDDHHMMSS}
+
+question: When was the website first published on the internet?
+
+ok, putting warc-acme.com/jef/ on google, just doesn't load, wayback machine! 
+
+asset.png
+
+well well well look at who's here in 2016
+
+foto5.png
+
+we can also see the Firstfiledate of this thing whioch is the answerr to our question
+
+foto6.png
+answer: THM{20160210224602}
+
+task 3
+
+Further Investigation uncovers another image believed to be connected to the company's international expansion.
+
+Research reveals that to the right of the iconic landmark is a building that played a big role in the fight for independence of a particular country. Signs on the external wall provides the name of the building. 
+
+Submit the name of building translated into English as the flag.
+
+The flag format is THM{Landmark}
+
+question: What is the landmark?
+
+foto7.png
+
+ok to be honest, I saw something saying "Dublinone" at one of the flags at the right and searched "Dublin big pole landmark"
+
+foto8.png
+
+again, a simple search would give us the answer
+
+foto9.png
+
+answer: THM{General Post Office}
+
+TASK 4
+
+After uncovering ACME Jet Solutions origins and tracing their online presence through archived websites and international landmarks, investigators believe that an internal document was accidentally leaked by one of the company's developers. 
+
+The document may contain crucial information about the individual responsible for maintaining their systems. 
+
+What is the final flag?
+
+ok, received an odt, let's again see the metadata first
+
+foto10.png
+
+ok, cool seems that we have an username markwilliams7243 and a comment "Just remember Robin, don't publish this externally!" that didn't worked out, looks like it was published externally xD
+
+ok, out of curiosity, quero ver o que tem no documento
+
+foto11.png
+
+ya, vamos pesquiar pelo username e since que o ficheiro mencina "I will be releasing a video soon", vamos ao youtube! 
+
+filtrando por "apenas canais" encontramos o nosso amigo
+
+foto12.png
+
+e acedendo ao canal, vemos que aquele community post afinal era público...sorry Mark!
+
+answer: THM{Y0u_f0und_7h3_fin4l_fl4g!}
